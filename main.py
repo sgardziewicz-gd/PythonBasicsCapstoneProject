@@ -56,7 +56,7 @@ def parse_console_utility_args(parser: argparse.ArgumentParser):
     data_lines = args.data_lines
     file_name = args.file_name
     files_count = args.files_count
-    file_prefix = args.file_prefixs
+    file_prefix = args.file_prefix
     clear_path = args.clear_path
     cpu_count = args.multiprocessing
 
