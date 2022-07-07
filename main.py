@@ -2,22 +2,14 @@ import argparse
 import json
 import ast
 import os.path
-import sys
 from os import path
 import logging
 import configparser
-from multiprocessing import current_process
 from data_generation import generate_data
 from files_generation import multiprocess_save_files, save_file
-
+from logging_helper import exit_program
 logger = logging.getLogger()
 logging.basicConfig(level=logging.INFO)
-
-
-def exit_program(exit_info: str):
-    logger.error(exit_info)
-    logger.info(f'Exiting {current_process().name}')
-    sys.exit(1)
 
 
 def create_parser(default) -> argparse.ArgumentParser:

@@ -5,9 +5,7 @@ import random
 import uuid
 import logging
 from data_generation import generate_data
-
 logger = logging.getLogger()
-logging.basicConfig(level=logging.INFO)
 
 
 def generate_file_prefix(files_count: int, file_prefix: str, cpu_count: int, modulo: int) -> list:

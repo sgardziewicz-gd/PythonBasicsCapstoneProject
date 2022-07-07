@@ -1,19 +1,10 @@
 import ast
 import logging
-import sys
 import uuid
 import time
 import random
-from multiprocessing import current_process
-
+from logging_helper import exit_program 
 logger = logging.getLogger()
-logging.basicConfig(level=logging.INFO)
-
-
-def exit_program(exit_info: str):
-    logger.error(exit_info)
-    logger.info(f'Exiting {current_process().name}')
-    sys.exit(1)
 
 
 def generate_data_line(data_schema: dict) -> dict:
