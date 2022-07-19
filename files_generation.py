@@ -38,7 +38,7 @@ def save_file(file_parameters: tuple):
 
 
 def multiprocess_save_files(file_parameters: tuple):
-    save_path, data_schema, data_lines, file_name, files_count, file_prefix, cpu_count = file_parameters
+    save_path, data_schema, data_lines, file_name, files_count, file_prefix, cpu_count, modulo = file_parameters
     if cpu_count > os.cpu_count():
         cpu_count = os.cpu_count()
         logger.info(f'Provided number of processes is higher than available on this CPU, changed to {cpu_count}')
@@ -50,5 +50,5 @@ def multiprocess_save_files(file_parameters: tuple):
         multiprocessing_parameters.append((save_path, data_schema, data_lines, file_name, files_count,
                                            file_prefix, i + 1, modulo))
 
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with concurrent.futures.ProcessPoolExecutor(max_workers=cpu_count) as executor:
         executor.map(save_file, multiprocessing_parameters)
