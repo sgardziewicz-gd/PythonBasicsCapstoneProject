@@ -41,6 +41,7 @@ def multiprocess_save_files(file_parameters: tuple):
     save_path, data_schema, data_lines, file_name, files_count, file_prefix, cpu_count = file_parameters
     if cpu_count > os.cpu_count():
         cpu_count = os.cpu_count()
+        logger.info(f'Provided number of processes is higher than available on this CPU, changed to {cpu_count}')
     modulo = files_count % cpu_count
     files_count = files_count // cpu_count
     multiprocessing_parameters = []
