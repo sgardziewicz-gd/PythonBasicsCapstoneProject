@@ -11,6 +11,7 @@ from logging_helper import exit_program
 logger = logging.getLogger()
 logging.basicConfig(level=logging.INFO)
 
+# test comment
 
 def create_parser(default) -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog='jsonlgenerator', description='Console utility that allows to generate test '
